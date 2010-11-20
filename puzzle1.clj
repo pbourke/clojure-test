@@ -6,12 +6,11 @@
 (require 'clojure.string)
 
 (defn print-hop [x]
-  (dotimes [i x]
-    (let [j (inc i)]
-       (cond 
-         (= 0 (mod j 15)) (println "Hop")
-         (= 0 (mod j 3))  (println "Hoppity")
-         (= 0 (mod j 5))  (println "Hophop")))))
+  (doseq [j (range 1 (inc x))]
+     (cond 
+       (= 0 (mod j 15)) (println "Hop")
+       (= 0 (mod j 3))  (println "Hoppity")
+       (= 0 (mod j 5))  (println "Hophop"))))
 
 (print-hop 
   (Integer/parseInt 
